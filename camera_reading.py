@@ -10,7 +10,7 @@ class Follower:
 		self.cam=cv2.VideoCapture(0)
 		cv2.namedWindow("window", 1)
 		self.cmd_vel_pub = rospy.Publisher('cmd_vel_mux/input/teleop', Twist, queue_size=1)
-	def callback(self,data)
+	def callback(self,data):
 		hsv = cv2.cvtColor(self.cam, cv2.COLOR_BGR2HSV)
 		lower=numpy.array((0, 50, 50))
 		upper=numpy.array((50, 255, 255))
