@@ -13,10 +13,9 @@ def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
     return math.atan(wheelbase / radius)
 
 def callback(data):
-    #These numbers are just samples, needing modification 
-    return data
+   rospy.loginfo(data.data)
 
-def main():
+while not rospy.is_shutdown():
     rospy.init_node('car')
     wheelbase = 1
     neutral = 370
@@ -35,8 +34,4 @@ def main():
     elif PWM_steering < PWM_min:
         PWM_steering = PWM_min
 
-    return(PWM_steering)
-    rospy.spin()
-
-if __name__ == "__main__":
-    main()
+ 
