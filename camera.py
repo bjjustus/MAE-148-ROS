@@ -49,12 +49,12 @@ while True:
     #for centroid
     mask = cv2.inRange(hsv, lower, higher)
     h,w,d= frame.shape
-  
+    M=cv2.moments(mask)
     #centroid calculation and publisher
     if M['m00']!= 0:
            cx= int(M['m10']/M['m00'])
            cy= int(M['m01']/M['m00'])
-           cv2.circle(image, (cx, cy), 20, (0,0,255), -1)
+           cv2.circle(frame, (cx, cy), 20, (0,0,255), -1)
            err=cx-w/2
            move.linear.x=.1
            move.angular.z=-float(err)/100
