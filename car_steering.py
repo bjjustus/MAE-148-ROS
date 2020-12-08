@@ -16,7 +16,7 @@ def callback(data):
     #These numbers are just samples, needing modification 
     return data
 
-def run():
+def main():
     rospy.init_node('car')
     wheelbase = 1
     neutral = 370
@@ -38,5 +38,5 @@ def run():
     return(PWM_steering)
     rospy.spin()
 
-while(True):
-	run()
+if __name__ == "__main__":
+    main()
