@@ -1,10 +1,12 @@
 import cv2
 import numpy as np
+import rospy
 
 
 def callback(x):
     pass
 
+rospy.init_node('Camera')
 
 cap = cv2.VideoCapture(0)
 
