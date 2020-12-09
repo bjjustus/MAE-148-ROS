@@ -58,7 +58,7 @@ while True:
            err=cx-w/2
            move.linear.x=.1
            move.angular.z=-float(err)/100
-           self.cmd_vel_pub.publish(move)
+           cmd_vel_pub.publish(move)
     else:
            cx, cy=0, 0
 
