@@ -15,8 +15,8 @@ def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
 def callback(msg):
    rospy.loginfo(msg)
 
-rospy.init_node('car')
-while not rospy.is_shutdown():
+def listener():
+    rospy.init_node('car')
     wheelbase = 1
     neutral = 370
     PWM_max = 460
@@ -33,3 +33,8 @@ while not rospy.is_shutdown():
     kit.servo[1].set_pulse_width_range(290, 460)
     kit.servo[1].angle = 57.2958 * steering
     kit.continuous_servo[0].throttle = linear.x
+    
+    
+if __name__ == '__main__':
+     listener()
+
