@@ -29,7 +29,7 @@ cv2.createTrackbar('highS', 'sliders', highS, 255, callback)
 cv2.createTrackbar('lowV', 'sliders', lowV, 255, callback)
 cv2.createTrackbar('highV', 'sliders', highV, 255, callback)
 #publisher
-cmd_vel_pub = rospy.Publisher('cmd_vel_mux/input/teleop', Twist, queue_size=10)
+cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
 move=Twist()
 while True:
     # ret, frame = cap.read()
