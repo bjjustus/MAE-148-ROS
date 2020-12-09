@@ -25,10 +25,9 @@ while not rospy.is_shutdown():
     msg=Twist()
     sub=rospy.Subscriber('cmd_vel_mux/input/teleop', Twist, callback)
     x=msg.linear.x
-    z=msg.linear.z
+    z=msg.angular.z
     steering = convert_trans_rot_vel_to_steering_angle(x, z, wheelbase)
     PWM_steering = neutral + k * steering
-    print(x)
     if PWM_steering > PWM_max:
         PWM_steering = PWM_max
     elif PWM_steering < PWM_min:
