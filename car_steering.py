@@ -34,6 +34,8 @@ def listener():
     kit.servo[1].angle = 57.2958 * steering
     kit.continuous_servo[0].throttle = linear.x
     
+    rospy.spin()
+    
     
 if __name__ == '__main__':
      listener()
