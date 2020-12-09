@@ -7,6 +7,9 @@ from geometry_msgs.msg import Twist
 def callback(x):
     pass
 
+def __init__ (self):
+    self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+    
 rospy.init_node('Camera')
 
 cap = cv2.VideoCapture(0)
@@ -29,7 +32,6 @@ cv2.createTrackbar('highS', 'sliders', highS, 255, callback)
 cv2.createTrackbar('lowV', 'sliders', lowV, 255, callback)
 cv2.createTrackbar('highV', 'sliders', highV, 255, callback)
 #publisher
-cmd_vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
 move=Twist()
 while True:
     # ret, frame = cap.read()
@@ -58,7 +60,7 @@ while True:
            err=cx-w/2
            move.linear.x=.1
            move.angular.z=-float(err)/100
-           cmd_vel_pub.publish(move)
+           self.cmd_vel_pub.publish(move)
     else:
            cx, cy=0, 0
 
