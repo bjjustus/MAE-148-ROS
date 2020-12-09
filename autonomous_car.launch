@@ -1,0 +1,7 @@
+<launch>
+    <node pkg=”car” type=”camera.py” name=”Camera” output = "screen">
+    </node>
+
+    <node pkg=”car” type=”camera_reading.py” name=”line_follower” output = "screen">
+    </node>
+</launch>
