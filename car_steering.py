@@ -6,10 +6,6 @@ from adafruit_servokit import ServoKit
 import adafruit_motor.servo
 
 
-
-def __init__(self):
-    self.speed=rospy.Subscriber('cmd_vel_mux/input/teleop', Twist, callback)
-
 def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
     if omega == 0 or v == 0:
         return 0
@@ -26,7 +22,7 @@ while not rospy.is_shutdown():
     PWM_max = 460
     PWM_min = 290
     msg=Twist()
-    rospy.Subscriber('cmd_vel_mux/input/teleop', Twist, callback)
+    rospy.Subscriber('/cmd_vel', Twist, callback)
     x=msg.linear.x
     z=msg.linear.z
     steering = convert_trans_rot_vel_to_steering_angle(x, z, wheelbase)
