@@ -12,8 +12,8 @@ def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
     radius = v / omega
     return math.atan(wheelbase / radius)
 
-def callback(data):
-   rospy.loginfo(data.data)
+def callback(msg):
+   rospy.loginfo(msg)
 
 while not rospy.is_shutdown():
     rospy.init_node('car')
